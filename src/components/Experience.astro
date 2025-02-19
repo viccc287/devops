@@ -1,0 +1,64 @@
+---
+interface Project {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+}
+
+const projects: Project[] = [
+  {
+    name: "Sporefy",
+    description: "A fully-featured Spotify clone made with Astro and Svelte",
+    image: "sporefy.png",
+    url: "https://sporefy.vercel.app",
+  },
+  {
+    name: "bskrape",
+    description:
+      "A Bodega Aurrera sales and discounts scraper made with Node.js",
+    image: "bskrape.png",
+    url: "https://github.com/viccc287/bskrape",
+  },
+  {
+    name: "Audiobook generator",
+    description: "An audiobook generator with AI functions, made with React",
+    image: "audiobook-generator.png",
+    url: "https://audiobook-generator-wheat.vercel.app/",
+  },
+];
+---
+
+<div id="recent-projects" class="container mx-auto my-20 px-4">
+  <h1
+    class="text-white text-4xl tracking-tighter text-balance font-medium sm:text-5xl text-center mb-10"
+  >
+    Experience
+  </h1>
+  <p class="text-center text-md mb-10">
+    I only have administrative work experience, however, I have also worked on some projects that I am proud of. Here are some of them:
+  </p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      projects.map((project) => (
+        <div class="bg-black/30 rounded-lg overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300">
+          <a target="_blank"  href={project.url}>
+            <img
+              src={project.image || "/placeholder.svg"}
+              alt={project.name}
+              class="w-full h-48 object-cover object-top"
+            />
+            <div class="p-6">
+              <h3
+                class="text-white text-xl font-semibold mb-2 group-hover:underline"
+              >
+                {project.name}
+              </h3>
+              <p class="text-gray-300 text-sm">{project.description}</p>
+            </div>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>

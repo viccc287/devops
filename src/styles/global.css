@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Geist Variable', 'sans-serif';
+  --font-inter: 'Inter Variable', 'sans-serif';
+}
