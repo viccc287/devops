@@ -9,9 +9,6 @@ pipeline {
     
     stages {
         stage('Build') {
-            when {
-                changeset "sicei/**"
-            }
             steps {
                 dir('sicei') {
                     bat "echo Construyendo la imagen Docker con tag: %TAG%"
@@ -21,9 +18,6 @@ pipeline {
         }
         
         stage('Deploy') {
-            when {
-                changeset "sicei/**"
-            }
             steps {
                 bat '''
                     echo Deteniendo y eliminando el contenedor anterior si existe...
